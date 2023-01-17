@@ -12,26 +12,32 @@ class DbManager {
     private $db;
 
     function __construct(PDO $db) {
+        
         $this->db = $db;
     }
 
     // return l'id inseré
+
     function insert(string $sql, array $data) {
         $in = $this->db->prepare($sql);
-        // $in->execute($data);
-        
+        $in->execute($data);
+        return $this->db->lastInsertId();
     }
 
     function insert_advanced(DbObject $dbObj) {
-       
+
+     
+
+
+
     }
     
 
     function select(string $sql, array $data, string $className) {
-        $sel = $this->db->prepare($sql);
-        $sel->execute($data);
-        $sel->setFetchMode(PDO::FETCH_CLASS, $className);
-        return $sel->fetchAll();
+        $select = $this->db->prepare($sql);
+        $select->execute($data);
+        return $select->fetchAll(PDO::FETCH_CLASS, $className);
+
     }
     
 
@@ -39,16 +45,24 @@ class DbManager {
         $query = $this->db->prepare('SELECT * FROM '.$tableName.' WHERE `id` = ?');
         $query->execute([$id]);
         return $query->fetchObject($className);
+
+
+
     }
     
 
     function getById_advanced($id, string $className) {
-       
+        
+
+
     }
     
 
     function getBy(string $tableName, string $column, $value, string $className) {
-        
+        $query = $this->db->prepare('SELECT * FROM '.$tableName.' WHERE `'.$column.'` = ?');
+        $query->execute([$value]);
+        return $query->fetchObject($className);
+
     }
     
 
@@ -58,17 +72,16 @@ class DbManager {
     
 
     function removeById(string $tableName, $id) {
-       
+        $query = $this->db->prepare('DELETE FROM '.$tableName.' WHERE `id` = ?');
+        $query->execute([$id]);
+
+
     }
     
 
     function update(string $tableName, array $data) {
-    //     $var = $this->db->prepare('UPDATE '.$tableName.' SET ? = ? WHERE ? = ?');
-    //     $params = [];
-    //     foreach ($data as $key => $value) {
-    //         array_push($params, $key, $value,);
-    //     }
-    //     $var->execute($params);
+        $query = $this->db->prepare('UPDATE '.$tableName.' SET `name` = ?, `description` = ?, `price` = ?, `quantity` = ? WHERE `id` = ?');
+        $query->execute([$data['name'], $data['description'], $data['price'], $data['quantity'], $data['id']]);
     }
     
     function update_advanced(DbObject $dbObj) {
