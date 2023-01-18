@@ -1,6 +1,47 @@
 html{
-    margin: 0;
     padding: 0;
+    margin: 0;
+}
+.title-headertop{
+    display: flex;
+}
+.header-top{
+    display: flex;
+    flex-direction: row;
+    padding-left: 15%;
+}
+.navibar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 120%;
+    padding: 0;
+}
+.h1{
+    display: flex;
+    
+}
+.navilinks{
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.hyperlink{
+    text-decoration: none;
+    color: black;
+}
+.hyperlink:hover{
+    border-bottom-style: solid;
+    border-color: darkviolet;
+    padding-bottom: 5px;
+}
+.container{
+    padding: 22px;
+}
+.container.myspace{
+    background-color: darkviolet;
 }
 
 .error-alert {

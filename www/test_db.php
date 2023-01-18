@@ -81,7 +81,6 @@ $updated = $dbManager->update(
     'contact_forms',
     ['fullname' => "New fullname", 'id' => 1]
 );
-
 var_dump($updated);
 echo '</div><hr>';
 
@@ -98,6 +97,6 @@ $laForm = $dbManager->getById('contact_forms', 1, 'ContactForm');
 $laForm->fullname = 'New fullname ??';
 $dbManager->update_advanced($laForm);
 
-var_dump($updated);
+var_dump($laform);
 echo '</div><hr>';
 
