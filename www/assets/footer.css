@@ -1,0 +1,75 @@
+.leftFooter{
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    display: flex;
+    background-color: rgb(23, 10, 40);
+    justify-content: space-evenly;
+    padding-top: 1.6vh;
+    padding-bottom: 1vh;
+}
+
+.rightFooter{
+    display: flex;
+    flex-direction: column;
+}
+
+.logos{
+    background-color: rgb(249, 181, 156);
+    width: 40px;
+    height: 40px;
+    margin-right: 4px;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.white{
+    color: rgba(248, 232, 232, 0.951);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+
+.copyright{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    color: rgba(248, 232, 232, 0.951);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.subTitle{
+    color: rgb(249, 181, 156);
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.yellow{
+    font-weight: bold;
+    color: rgb(255,127,80);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.infoLink:link{
+    color: rgba(248, 232, 232, 0.951);
+}
+
+.infoLink:visited{
+    color: rgba(248, 232, 232, 0.951);
+}
+
+.infoLink{
+    text-decoration: none;
+}
+
+#bullet li::marker{
+    color: rgb(255,127,80);
+}
+
+.bullet{
+    list-style-type: square;
+}

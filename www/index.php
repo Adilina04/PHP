@@ -6,14 +6,13 @@ require_once __DIR__ . '/../src/init.php';
 
 $page_title = 'Home page';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
-
 ?>
-<body>
+    <body>
+        <?php require_once __DIR__ . '/../src/templates/partials/header.php'; ?>
+        <section>
+            
+        </section>
 
-<div>
-    <h1>Home page</h1>
-</div>
-
-<?php require_once __DIR__ . '/../src/templates/partials/footer.php'; ?>
-</body>
+        <?php require_once __DIR__ . '/../src/templates/partials/footer.php'; ?>
+    </body>
 </html>
