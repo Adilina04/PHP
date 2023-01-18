@@ -101,4 +101,12 @@ class DbManager {
         $this->update($tableName, $data);
         var_dump($data);
     }
+
+    function check_status($status, $requiredLv){
+        if ($status < $requiredLv){
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

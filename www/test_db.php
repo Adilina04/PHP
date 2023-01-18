@@ -5,8 +5,11 @@ require_once __DIR__ . '/../src/init.php';
 $page_title = 'DB Tests';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
 
+$_SESSION['status'] = 1;
+
 ?>
 <body>
+
 
 <div>
     <h1>DB Manager - Tests</h1>
@@ -14,10 +17,13 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
 
 <?php
 // TEST select
-echo '<div><h2>Test select</h2>';
-$forms = $dbManager->select('SELECT * FROM contact_forms', [], 'ContactForm');
-var_dump($forms);
-echo '</div><hr>';
+if($dbManager->check_status($_SESSION['status'], 10)){
+    echo '<div><h2>Test select</h2>';
+    $forms = $dbManager->select('SELECT * FROM contact_forms', [], 'ContactForm');
+    var_dump($forms);
+    echo '</div><hr>';
+}
+
 
 // TEST Advanced Insert
 echo '<div><h2>Test insert advanced</h2>';
