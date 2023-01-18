@@ -16,6 +16,20 @@ $_SESSION['status'] = 1;
 </div>
 
 <?php
+
+echo '<div><h2>Contact List:</h2>';
+$sql = $db->prepare('SELECT * FROM contact_forms');
+$sql->execute();
+$data = $sql->fetchAll();
+foreach($data as $row){
+    echo $row['fullname'].' ';
+    echo $row['created_at'].' ';
+    echo $row['status'] . ' ';
+    echo '<button id="verifyBtn">verify</button>'.' <br>';
+}
+echo '</div><hr>';
+
+
 // TEST select
 if($dbManager->check_status($_SESSION['status'], 10)){
     echo '<div><h2>Test select</h2>';

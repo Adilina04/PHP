@@ -28,7 +28,7 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
             <input type="text" id="email" name="email" required="required">
         </div>
         <div>
-            <label for="message">Votre message (Optionel)</label>
+            <label for="message">Votre message</label>
             <textarea name="message" id="textarea" cols="30" rows="10"></textarea>
         </div>
         <button type="submit">Envoyer</button>
