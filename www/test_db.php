@@ -22,11 +22,17 @@ $sql = $db->prepare('SELECT * FROM contact_forms');
 $sql->execute();
 $data = $sql->fetchAll();
 foreach($data as $row){
-    echo $row['fullname'].' ';
-    echo $row['created_at'].' ';
-    echo $row['status'] . ' ';
-    echo '<button id="verifyBtn">verify</button>'.' <br>';
+    echo 'Name: '.$row['fullname'].' <br>';
+    echo 'Created: '.$row['created_at'].' <br>';
+    echo 'Id: ' . $row['id'] .' <br>';
+    echo 'Role: '.$row['status'] .' <br>';
+    echo '<br>';
 }
+echo '<form action="/actions/update_status.php" method="post">
+	        <input type="text" id="id" name="id" placeholder="id">
+            <input type="text" id="status" name="status" placeholder="new status">
+	        <button type="submit">Changer status</button>
+            </form>';
 echo '</div><hr>';
 
 
