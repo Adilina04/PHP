@@ -2,5 +2,17 @@
 
 require_once __DIR__ . '/../../src/init.php';
 
-$smth = $db->prepare("UPDATE contact_forms SET status = 10 WHERE id = 2");
-$stmh->execute();
+if (isset($_POST['accept-account-submit'])) {
+    // get only checked checkboxes in the form
+    $users = $_POST['user'];
+
+    foreach ($users as $user) {
+        // update the role of the users
+        $userId = intval($user);
+        $dbManager->update('users', ['id' => $userId, 'id_roles' => 10]);
+
+    }
+
+}
+
+header('Location: /manager.php');
