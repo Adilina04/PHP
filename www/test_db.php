@@ -29,10 +29,16 @@ foreach($data as $row){
     echo '<br>';
 }
 echo '<form action="/actions/update_status.php" method="post">
-	        <input type="text" id="id" name="id" placeholder="id">
-            <input type="text" id="status" name="status" placeholder="new status">
-	        <button type="submit">Changer status</button>
-            </form>';
+        <div>
+            <label for="id">ID utilisateur à modifier</label>
+            <input type="number" id="id" name="id" required="required">
+        </div>
+        <div>
+            <label for="status">Nouveau status (0, 1, 10, 1000)</label>
+            <input type="number" id="status" name="status" required="required">
+        </div>
+        <button type="submit">Envoyer</button>
+        </form>';
 echo '</div><hr>';
 
 
