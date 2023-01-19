@@ -4,6 +4,8 @@ require_once __DIR__ . '/../src/init.php';
 
 $page_title = 'Manager';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
+$_SESSION['id_roles'] = 200;
+
 ?>
 <body>
 <?php require_once __DIR__ . '/../src/templates/partials/header.php'; ?>
@@ -26,15 +28,21 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
             echo 'Mail: '.$user['mail'].' <br>';
             echo 'Phone: ' . $user['phone'] .' <br>';
             echo 'Role: '.$user['id_roles'] .' <br>';
-            echo '<input type="checkbox" name="user[]" value="' . $user['id'] .'"><br>';
+            if($dbManager->check_roles($_SESSION['id_roles'], 200)){
+                echo '<input type="checkbox" name="user[]" value="' . $user['id'] .'"><br>';
+            }
             echo '<hr>';
         }
 
     echo '<br>';
     echo '<br>';
 
-    
-    echo        '<input type="submit" name="accept-account-submit" value="Valider">';
+    if ($dbManager->check_roles($_SESSION['id_roles'], 200)) {
+        echo '<input type="submit" name="accept-account-submit" value="Valider">';
+    } else {
+        echo "You don't have the permission to change roles! You shouldn't even be here!";
+        echo "Your permission level is: " . $_SESSION['id_roles'] . ".";
+    }
     echo        '</form>';
 
     echo '<br>';
