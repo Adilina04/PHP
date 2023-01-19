@@ -19,7 +19,6 @@ class DbManager {
     function insert(string $sql, array $data) {
         $sth = $this->db->prepare($sql);
         $sth->execute($data);
-        echo $this->db->lastInsertId();
     }
 
     function insert_advanced(DbObject $dbObj) {
