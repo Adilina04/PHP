@@ -89,10 +89,7 @@ if (isset($_SESSION[''])) {
                 $email_Ok = 1;
             } else {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $check_Email = $dbManager->select('SELECT mail FROM users ')
-                    if(){
-                        $email_Ok = 2;
-                    }
+                    $email_Ok = 2;
                 } else {
                     $err_Email = 'Email is not valid';
                     $email_Ok = 1;
