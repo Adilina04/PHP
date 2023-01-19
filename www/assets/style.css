@@ -30,18 +30,29 @@ html{
 
 .hyperlink{
     text-decoration: none;
-    color: black;
+    color: rgb(23, 10, 40);
 }
+
+.hyperlinkB{
+    text-decoration: none;
+    color: rgba(248, 232, 232, 0.951);
+}
+
 .hyperlink:hover{
     border-bottom-style: solid;
-    border-color: darkviolet;
+    border-color: rgb(255,127,80);
+    padding-bottom: 5px;
+}
+.hyperlinkB:hover{
+    border-bottom-style: solid;
+    border-color: rgba(248, 232, 232, 0.951);
     padding-bottom: 5px;
 }
 .container{
     padding: 22px;
 }
 .container.myspace{
-    background-color: darkviolet;
+    background-color: rgb(23, 10, 40);
 }
 .regis_div{
     display:block;
@@ -62,5 +73,5 @@ html{
     padding-bottom: 5%;
 }
 .error-alert {
-    background-color: red;
+    background-color: rgb(255,127,80);
 }
