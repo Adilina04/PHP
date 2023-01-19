@@ -26,8 +26,8 @@ if (isset($_SESSION[''])) {
             empty(
                 $_POST['fullname'] ||
                     empty($_POST['email']) ||
-                    emtpy($_POST['phone']) ||
-                    emtpy($_POST['password'])
+                    empty($_POST['phone']) ||
+                    empty($_POST['password'])
             )
         ) {
             $error_Msg = 'Champ Obligatoire*';
