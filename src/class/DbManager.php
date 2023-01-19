@@ -41,7 +41,6 @@ class DbManager {
         $sql = substr($sql,0,-2).')';
         return $this->insert($sql, $data);
     }
-    
 
     function select(string $sql, array $data, string $className) {
         $req = $this->db->prepare($sql);
@@ -50,7 +49,6 @@ class DbManager {
         $resultat = $req->fetchAll();
         return $resultat;
     }
-    
 
     function getById(string $tableName, $id, string $className) {
         $req = $this->db->prepare('SELECT * FROM '.$tableName.' WHERE id = ?');
@@ -59,13 +57,11 @@ class DbManager {
         $resultat = $req->fetch();
         return $resultat;
     }
-    
 
     function getById_advanced($id, string $className) {
         $tableName = strtolower($className).'s';
         return $this->getById($tableName, $id, $className);
     }
-    
 
     function getBy(string $tableName, string $column, $value, string $className) {
         $req = $this->db->prepare('SELECT * FROM '.$tableName.' WHERE '.$column.' = ?');
@@ -74,19 +70,16 @@ class DbManager {
         $resultat = $req->fetch();
         return $resultat;
     }
-    
 
     function getBy_advanced(string $column, $value, string $className) {
         $tableName = strtolower($className).'s';
         return $this->getBy($tableName, $column, $value, $className);
     }
-    
 
     function removeById(string $tableName, $id) {
         $req = $this->db->prepare('DELETE FROM '.$tableName.' WHERE id=?');
         $req->execute([$id]);
     }
-    
 
     function update(string $tableName, array $data) {
         $sql = 'UPDATE '.$tableName.' SET ';
@@ -100,20 +93,12 @@ class DbManager {
         $req = $this->db->prepare($sql.' WHERE id=:id');
         $req->execute($data);
     }
-    
+
     function update_advanced(DbObject $dbObj) {
         $tableName = strtolower(get_class($dbObj)).'s';
         echo $tableName;
         $data = get_object_vars($dbObj);
         $this->update($tableName, $data);
         var_dump($data);
-    }
-
-    function check_status($status, $requiredLv){
-        if ($status < $requiredLv){
-            return false;
-        } else {
-            return true;
-        }
     }
 }

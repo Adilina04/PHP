@@ -5,11 +5,8 @@ require_once __DIR__ . '/../src/init.php';
 $page_title = 'DB Tests';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
 
-$_SESSION['status'] = 1;
-
 ?>
 <body>
-
 
 <div>
     <h1>DB Manager - Tests</h1>
@@ -17,13 +14,10 @@ $_SESSION['status'] = 1;
 
 <?php
 // TEST select
-if($dbManager->check_status($_SESSION['status'], 10)){
-    echo '<div><h2>Test select</h2>';
-    $forms = $dbManager->select('SELECT * FROM contact_forms', [], 'ContactForm');
-    var_dump($forms);
-    echo '</div><hr>';
-}
-
+echo '<div><h2>Test select</h2>';
+$forms = $dbManager->select('SELECT * FROM contact_forms', [], 'ContactForm');
+var_dump($forms);
+echo '</div><hr>';
 
 // TEST Advanced Insert
 echo '<div><h2>Test insert advanced</h2>';
@@ -81,6 +75,7 @@ $updated = $dbManager->update(
     'contact_forms',
     ['fullname' => "New fullname", 'id' => 1]
 );
+
 var_dump($updated);
 echo '</div><hr>';
 
@@ -97,6 +92,6 @@ $laForm = $dbManager->getById('contact_forms', 1, 'ContactForm');
 $laForm->fullname = 'New fullname ??';
 $dbManager->update_advanced($laForm);
 
-var_dump($laform);
+var_dump($updated);
 echo '</div><hr>';
 
