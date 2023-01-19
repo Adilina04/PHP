@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mer. 18 jan. 2023 à 13:13
+-- Généré le : mer. 18 jan. 2023 à 15:34
 -- Version du serveur :  5.7.34
 -- Version de PHP : 8.0.8
 
@@ -43,8 +43,21 @@ CREATE TABLE `deposits` (
 
 CREATE TABLE `devises` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `valeurs` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `devises`
+--
+
+INSERT INTO `devises` (`id`, `name`, `valeurs`) VALUES
+(5, 'euro', 1),
+(6, 'dollars', 1.08),
+(7, 'bitcoin', 0.000051),
+(8, 'yen', 139.03),
+(9, 'dinar', 3.33),
+(10, 'berrys', 1000);
 
 -- --------------------------------------------------------
 
@@ -56,6 +69,17 @@ CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `roles` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `roles`
+--
+
+INSERT INTO `roles` (`id`, `roles`) VALUES
+(0, 'banni'),
+(1, 'unverified'),
+(10, 'verified'),
+(200, 'manager'),
+(1000, 'admin');
 
 -- --------------------------------------------------------
 
@@ -186,13 +210,13 @@ ALTER TABLE `deposits`
 -- AUTO_INCREMENT pour la table `devises`
 --
 ALTER TABLE `devises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- AUTO_INCREMENT pour la table `storage`
