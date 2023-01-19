@@ -15,6 +15,13 @@ class DbManager {
         $this->db = $db;
     }
 
+    function check_roles($role, $requiredLevel){
+        if($role < $requiredLevel){
+            return false;
+        } else {
+            return true;
+        }
+    }
     // return l'id inseré
     function insert(string $sql, array $data) {
         $sth = $this->db->prepare($sql);
