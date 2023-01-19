@@ -4,7 +4,9 @@ require_once __DIR__ . '/../src/init.php';
 
 $page_title = 'Manager';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
-$_SESSION['id_roles'] = 200;
+
+// assigner manuellement level de permission pour tests
+$_SESSION['id_roles'] = 1000;
 
 ?>
 <body>
@@ -37,12 +39,19 @@ $_SESSION['id_roles'] = 200;
     echo '<br>';
     echo '<br>';
 
-    if ($dbManager->check_roles($_SESSION['id_roles'], 200)) {
-        echo '<input type="submit" name="accept-account-submit" value="Valider">';
-    } else {
-        echo "You don't have the permission to change roles! You shouldn't even be here!";
-        echo "Your permission level is: " . $_SESSION['id_roles'] . ".";
+    if($dbManager->check_roles($_SESSION['id_roles'], 1000)){
+        echo '<input type="submit" name="admin-promote-submit" value="Promouvoir"><br>';
+        echo '<input type="submit" name="admin-demote-submit" value="Destituer"><br>';
+        echo '<input type="submit" name="accept-account-submit" value="Accepter"><br>';
+        echo '<input type="submit" name="ban-account-submit" value="Bannir"><br>';
     }
+    else if ($dbManager->check_roles($_SESSION['id_roles'], 200)) {
+        echo '<input type="submit" name="accept-account-submit" value="Accepter"><br>';
+        echo '<input type="submit" name="ban-account-submit" value="Bannir"><br>';
+    } else {
+        echo "You don't have the permission level to change roles! You shouldn't even be here!";
+    }
+    echo "<br>Your permission level is: " . $_SESSION['id_roles'] . ".";
     echo        '</form>';
 
     echo '<br>';
