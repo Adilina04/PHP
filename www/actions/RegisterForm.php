@@ -89,11 +89,15 @@ if (isset($_SESSION[''])) {
                 $email_Ok = 1;
             } else {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $check_Email = $dbManager->select('SELECT * FROM users WHERE mail = ?',[$email], 'ContactForm');
-                    if($check_Email){
+                    $check_Email = $dbManager->select(
+                        'SELECT * FROM users WHERE mail = ?',
+                        [$email],
+                        'UserForm'
+                    );
+                    if ($check_Email) {
                         $err_Email = 'Email already used';
                         $email_Ok = 1;
-                    }else{
+                    } else {
                         $email_Ok = 2;
                     }
                 } else {
