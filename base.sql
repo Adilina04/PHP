@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mer. 18 jan. 2023 à 15:34
--- Version du serveur :  5.7.34
--- Version de PHP : 8.0.8
+-- Généré le : jeu. 19 jan. 2023 à 10:52
+-- Version du serveur : 5.7.39
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `Pocket_Bank`
+-- Base de données : `Pocket_bank`
 --
 
 -- --------------------------------------------------------
@@ -122,9 +122,17 @@ CREATE TABLE `users` (
   `phone` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `iban` varchar(27) NOT NULL,
-  `id-roles` int(11) NOT NULL,
+  `id_roles` int(11) NOT NULL,
   `birthday` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `fullname`, `mail`, `phone`, `password`, `iban`, `id_roles`, `birthday`) VALUES
+(1, 'jean baptiste', 'test@test.fr', '0631425364', '16bb7911a153c1f61af87e0d3ad8bf3bf1ef7f1e1de0433dfa70a0168d970ba1', 'FR50433151668140705096905', 1, NULL),
+(3, 'henry', 'lui.test@test.fr', '0631425364', '16bb7911a153c1f61af87e0d3ad8bf3bf1ef7f1e1de0433dfa70a0168d970ba1', 'FR43150082734087902817038', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -186,7 +194,7 @@ ALTER TABLE `transactions`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id-roles` (`id-roles`);
+  ADD KEY `id_roles` (`id_roles`);
 
 --
 -- Index pour la table `withdrawal`
@@ -234,7 +242,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `withdrawal`
@@ -272,7 +280,7 @@ ALTER TABLE `transactions`
 -- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id-roles`) REFERENCES `roles` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_roles`) REFERENCES `roles` (`id`);
 
 --
 -- Contraintes pour la table `withdrawal`
