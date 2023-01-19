@@ -22,6 +22,7 @@ class DbManager {
             return true;
         }
     }
+    
     // return l'id inseré
     function insert(string $sql, array $data) {
         $sth = $this->db->prepare($sql);
