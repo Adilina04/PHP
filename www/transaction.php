@@ -8,6 +8,7 @@ if (isset($_POST['transactions'])){
     $amount = $_POST['amount'];
     $emitter = $_POST['emitter'];
     $receiver = $_POST['receiver'];
+
 if ($amount != '') {
         // Effectuer le dépôt
         // $req = $db->prepare('INSERT INTO depot(id_user,amount) WHERE id_user = ? AND amount = ?');
@@ -51,7 +52,21 @@ if ($amount != '') {
     </div>
     <div>
         <p><?= $message ?? '' ?></p>
+
     </div>
+    <div>
+        <button><a href="index.php">Retour</a></button>
+    </div>
+    <div>
+        <button><a href="depot.php">Dépôt</a></button>
+    </div>
+    <div>
+        <button><a href="retrait.php">Retrait</a></button>
+    </div>
+    <div>
+        <button><a href="transaction.php">Transactions</a></button>
+    </div>
+    <?php include __DIR__ . '/../src/footer.php'; ?>
 
 
 
