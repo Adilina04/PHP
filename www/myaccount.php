@@ -51,7 +51,7 @@ $transactions = getUserTransactions($user['id']);
     <h2>Actions</h2>
     <ul>
       <li><a href="depot.php">Effectuer un dépôt</a></li>
-      <li><a href="withdraw.php">Effectuer un retrait</a></li>
+      <li><a href="retrait.php">Effectuer un retrait</a></li>
     </ul>
   </div>
   <div class="footer">

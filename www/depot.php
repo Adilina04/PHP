@@ -6,14 +6,16 @@ $page_title = 'depot';
 if (isset($_POST['depot'])){
     $amount = $_POST['amount'];
     $id_user = $_POST['id_user'];
+    
 if ($amount != '') {
+    echo "TESTTTTT";
         // Effectuer le dépôt
         // $req = $db->prepare('INSERT INTO depot(id_user,amount) WHERE id_user = ? AND amount = ?');
         // $req->execute([$id_user, $amount]);
 
         // Enregistrer la transaction dans la table transactions
-        $req = $db->prepare('INSERT INTO depot(id_user,amount) VALUES(?, ?)');
-        $req->execute([$id_user, $amount]);
+        $req = $db->prepare('INSERT INTO deposits( amount, id_users ) VALUES(?, ?, ?)');
+        $req->execute([$amount, $id_user]);
 
             $message = 'Votre dépôt a été effectué avec succès.';
         } else {
@@ -22,9 +24,13 @@ if ($amount != '') {
     } else {
         $message = 'Veuillez entrer une amount valide.';
     }
+    //on stocke les infos dans la table storage
+    $req = $db->prepare('SELECT * FROM storage WHERE id_users = ?');
+    $req->execute([$id_user]);
+    
 ?>
 
-<body>
+<body> 
 <link rel="stylesheet" href="../../src/style.css">
     <div>
         <h1>Dépôt</h1>
