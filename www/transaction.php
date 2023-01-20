@@ -1,6 +1,6 @@
 <?php
-
 require_once __DIR__ . '/../src/init.php';
+$page_title = 'transaction';
 
 $page_title = 'transactions';
 
@@ -15,7 +15,7 @@ if ($amount != '') {
         // $req->execute([$id_user, $amount]);
 
         // Enregistrer la transactionss dans la table transactionss
-        $req = $db->prepare('INSERT INTO transactions(emitter, receiver, amount) VALUES(?, ?, ?)');
+        $req = $db->prepare('INSERT INTO transactions (emitter, receiver, amount) VALUES(?, ?, ?)');
         $req->execute([$emitter, $receiver, $amount]);
 
             $message = 'Votre transactions a été effectuée avec succès.';
@@ -26,7 +26,6 @@ if ($amount != '') {
         $message = 'Veuillez entrer une amount valide.';
     }
 ?>
-
 <body>
 <link rel="stylesheet" href="../../src/style.css">
     <div>
@@ -35,11 +34,11 @@ if ($amount != '') {
     <div>
         <form action="transaction.php" method="post">
         <div>
-                <label for="dona">ID donateur</label>
+                <label for="dona">emitter</label>
                 <input type="int" name="emitter" id="emitter">
             </div>
             <div>
-                <label for="recev">ID receveur</label>
+                <label for="recev">receiver</label>
                 <input type="int" name="receiver" id="receiver">
             </div>
             <div>
@@ -67,9 +66,6 @@ if ($amount != '') {
         <button><a href="transaction.php">Transactions</a></button>
     </div>
     <?php include __DIR__ . '/../src/footer.php'; ?>
-
-
-
 
 </body>
 
