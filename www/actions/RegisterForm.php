@@ -12,7 +12,7 @@ function generate_french_iban()
     return $iban;
 }
 
-if (isset($_SESSION[''])) {
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('location:login.php');
 } else {
     if (isset($_POST['subm_user'])) {
@@ -132,11 +132,6 @@ if (isset($_SESSION[''])) {
             ) {
                 //-----------------Iban generation------------------------
                 $iban_number = generate_french_iban();
-                if ($iban_number) {
-                    $iban_Ok = 2;
-                } else {
-                    $iban_Ok = 1;
-                }
                 //------------------Insert DB-------------------------------
                 $userInsert = $dbManager->insert(
                     'INSERT INTO users(fullname, mail, phone, password, iban, id_roles) VALUES(?,?,?,?,?,?)',

@@ -28,7 +28,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                 $_SESSION['user_id'] = $user_id;
                 if ($_SESSION['user_id']) {
                     $_SESSION['logged_in'] = true;
-                    header('location:index.php');
+                    session_regenerate_id(true);
+                    header('location:myaccount.php');
                 }
             } else {
                 $loginerror = 'Email ou mot de passe invalide';
