@@ -6,8 +6,10 @@ $page_title = 'Admin panel';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
 
 // assigner manuellement level de permission pour tests
-$_SESSION['id_roles'] = 1000;
 
+if (!$dbManager->check_roles($_SESSION['role'], 200)) {
+    header('location:index.php');
+}
 ?>
 <body>
 <?php require_once __DIR__ . '/../src/templates/partials/header.php'; ?>

@@ -5,6 +5,10 @@ require_once __DIR__ . '/../src/init.php';
 $page_title = 'Manager';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
 
+if (!$dbManager->check_roles($_SESSION['role'], 200)) {
+    header('location:index.php');
+}
+
 ?>
 <body>
 <?php require_once __DIR__ . '/../src/templates/partials/header.php'; ?>
@@ -27,7 +31,7 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
             echo 'Mail: '.$user['mail'].' <br>';
             echo 'Phone: ' . $user['phone'] .' <br>';
             echo 'Role: '.$user['id_roles'] .' <br>';
-            if($dbManager->check_roles($_SESSION['id_roles'], 200)){
+            if($dbManager->check_roles($_SESSION['role'], 200)){
                 echo '<input type="checkbox" name="user[]" value="' . $user['id'] .'"><br>';
             }
             echo '<hr>';
@@ -36,13 +40,13 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
     echo '<br>';
     echo '<br>';
 
-    if($dbManager->check_roles($_SESSION['id_roles'], 1000)){
+    if($dbManager->check_roles($_SESSION['role'], 1000)){
         echo '<input type="submit" name="admin-promote-submit" value="Promouvoir"><br>';
         echo '<input type="submit" name="admin-demote-submit" value="Destituer"><br>';
         echo '<input type="submit" name="accept-account-submit" value="Accepter"><br>';
         echo '<input type="submit" name="ban-account-submit" value="Bannir"><br>';
     }
-    else if ($dbManager->check_roles($_SESSION['id_roles'], 200)) {
+    else if ($dbManager->check_roles($_SESSION['role'], 200)) {
         echo '<input type="submit" name="accept-account-submit" value="Accepter"><br>';
         echo '<input type="submit" name="ban-account-submit" value="Bannir"><br>';
     } else {
@@ -56,12 +60,6 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
     echo '<br>';
     echo '<br>';
     echo '<hr>';
-
-    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-        echo '<h3 style="background-color: green;">you are logged in<h3>';
-    } else {
-        echo '<h3 style="background-color: red;">you are not logged in<h3>';
-    }
 
     echo '</div>';
     

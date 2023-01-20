@@ -30,10 +30,12 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                     $_SESSION['role'] = $row->id_roles;
 
                 }
-                if ($_SESSION['id']) {
+                if ($_SESSION['id'] && $_SESSION['role'] != 0) {
                 $_SESSION['logged_in'] = true;
                 session_regenerate_id(true);
                 header('location:myaccount.php');
+                } else {
+                    echo "<h1 style='background-color: red'>You're banned bozo</h1>";
                 }
             } else {
                 $loginerror = 'Email ou mot de passe invalide';
