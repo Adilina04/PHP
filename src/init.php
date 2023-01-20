@@ -7,6 +7,7 @@ require_once __DIR__ . '/db.php';
 // class
 require_once __DIR__ . '/class/DbObject.php';
 require_once __DIR__ . '/class/ContactForm.php';
+require_once __DIR__ . '/class/UserForm.php';
 
 // db manager
 require_once __DIR__ . '/class/DbManager.php';
