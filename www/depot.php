@@ -31,8 +31,7 @@ require_once __DIR__ . '/../src/templates/partials/header.php';
             </div>
         </form>
     </div>
-    <?php require_once __DIR__ . '/../src/templates/partials/footer.php'; ?>
-
+  
 </body>
 
 </html>
