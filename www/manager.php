@@ -5,9 +5,6 @@ require_once __DIR__ . '/../src/init.php';
 $page_title = 'Manager';
 require_once __DIR__ . '/../src/templates/partials/html_head.php';
 
-// assigner manuellement level de permission pour tests
-$_SESSION['id_roles'] = 1000;
-
 ?>
 <body>
 <?php require_once __DIR__ . '/../src/templates/partials/header.php'; ?>
@@ -51,12 +48,27 @@ $_SESSION['id_roles'] = 1000;
     } else {
         echo "You don't have the permission level to change roles! You shouldn't even be here!";
     }
+    var_dump($_SESSION['fullname']);
+    echo '<br>';
+    var_dump($_SESSION['id_roles']);
+    echo '<br>';
+    var_dump($_SESSION['id']);
+    echo '<br>';
+
+    echo "<br>You are logged in as: " . $_SESSION['fullname'] . ".";
     echo "<br>Your permission level is: " . $_SESSION['id_roles'] . ".";
     echo        '</form>';
 
     echo '<br>';
     echo '<br>';
     echo '<hr>';
+
+    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+        echo '<h3 style="background-color: green;">you are logged in<h3>';
+    } else {
+        echo '<h3 style="background-color: red;">you are not logged in<h3>';
+    }
+
     echo '</div>';
     
 

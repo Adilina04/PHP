@@ -25,7 +25,19 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                     [$email],
                     'UserForm'
                 );
+                $id_roles = $dbManager->select(
+                    'SELECT id_roles FROM users WHERE mail=?',
+                    [$email],
+                    'UserForm'
+                );
+                $user_name = $dbManager->select(
+                    'SELECT fullname FROM users WHERE mail=?',
+                    [$email],
+                    'UserForm'
+                );
                 $_SESSION['user_id'] = $user_id;
+                $_SESSION['id_roles'] = $id_roles;
+                $_SESSION['fullname'] = $user_name;
                 if ($_SESSION['user_id']) {
                     $_SESSION['logged_in'] = true;
                     session_regenerate_id(true);
