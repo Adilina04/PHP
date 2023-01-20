@@ -19,12 +19,19 @@ require_once __DIR__ . '/../src/templates/partials/header.php';
                 <label for="amount">amount</label>
                 <input type="int" name="amount" id="amount">
             </div>
+            <div>
+                <label for="id_users">id_users</label>
+                <input type="int" name="id_users" id="id_users">
+            </div>
+            <div>
+                <label for="id_devises">id_devises</label>
+                <input type="int" name="id_devises" id="id_devises">
+            </div>
                 <button type="submit" name="depot">Déposer</button>
             </div>
         </form>
     </div>
-    <?php require_once __DIR__ . '/../src/templates/partials/footer.php'; ?>
-
+  
 </body>
 
 </html>
