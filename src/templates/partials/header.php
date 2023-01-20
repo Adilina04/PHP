@@ -11,7 +11,7 @@
                         <a href="contact.php" class="hyperlink">Nous Contacter</a>
                     </div>
                     <div class="myspace container">
-                        <a href="myspace.php" class="hyperlinkB">Mon espace</a>
+                        <a href="myaccount.php" class="hyperlinkB">Mon espace</a>
                     </div>
                 </section>
             </nav>
