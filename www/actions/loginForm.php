@@ -20,12 +20,15 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             );
 
             if ($loginform) {
-                $user_id = $dbManager->select(
-                    'SELECT id FROM users WHERE mail=?',
-                    [$email],
-                    'UserForm'
-                );
-                $_SESSION['user_id'] = $user_id;
+                foreach($loginform as $row){
+                    $_SESSION['user_id'] = $row->id; 
+                    $_SESSION['fullname'] = $row->fullname;
+                    $_SESSION['email'] = $row->mail;
+                    $_SESSION['phone'] = $row->phone;
+                    $_SESSION['iban'] = $row->iban;
+                    $_SESSION['id_roles'] = $row->id_roles;
+                    $_SESSION['birthday'] = $row->birthday;
+                }
                 if ($_SESSION['user_id']) {
                     $_SESSION['logged_in'] = true;
                     session_regenerate_id(true);
