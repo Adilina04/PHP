@@ -79,9 +79,13 @@ body{
 /* Styles pour la div contenant le formulaire d'inscription */
 .regis_div {
     width: 50%;
+    min-height: 20vh;
     margin: 0 auto;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: rgb(249, 238, 238);
+
     border-radius: 5px;
 }
 
@@ -90,7 +94,7 @@ body{
     text-align: center;
     margin-bottom: 20px;
     font-size: 36px;
-    color: #333;
+    color: rgb(23, 10, 40);
 }
 
 /* Styles pour le formulaire d'inscription */
@@ -108,15 +112,15 @@ body{
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(220, 210, 210);
     border-radius: 4px;
 }
 
 /* Styles pour le bouton de soumission */
 .regis_form button[type="submit"] {
     width: 100%;
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgb(23, 10, 40);
+    color: rgba(248, 232, 232, 0.951);
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
