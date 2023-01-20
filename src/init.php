@@ -13,6 +13,5 @@ require_once __DIR__ . '/class/UserForm.php';
 require_once __DIR__ . '/class/DbManager.php';
 
 $dbManager = new DbManager($db);
-
 // utils
 require_once __DIR__ . '/utils/errors.php';
