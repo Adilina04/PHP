@@ -12,7 +12,6 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
 require_once __DIR__ . '/actions/AccountForm.php';
 require_once __DIR__ . '/../src/templates/partials/header.php';
 
-
 ?>
 
   <body>
