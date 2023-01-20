@@ -3,7 +3,7 @@ session_start();
 
 // Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-  header('Location: index.php');
+  header('Location: register.php');
   exit;
 }
 
