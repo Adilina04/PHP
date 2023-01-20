@@ -48,15 +48,9 @@ require_once __DIR__ . '/../src/templates/partials/html_head.php';
     } else {
         echo "You don't have the permission level to change roles! You shouldn't even be here!";
     }
-    var_dump($_SESSION['fullname']);
-    echo '<br>';
-    var_dump($_SESSION['id_roles']);
-    echo '<br>';
-    var_dump($_SESSION['id']);
-    echo '<br>';
 
-    echo "<br>You are logged in as: " . $_SESSION['fullname'] . ".";
-    echo "<br>Your permission level is: " . $_SESSION['id_roles'] . ".";
+    echo "<br>You are logged in as: " . $_SESSION['name'] . ".";
+    echo "<br>Your permission level is: " . $_SESSION['role'] . ".";
     echo        '</form>';
 
     echo '<br>';
